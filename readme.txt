@@ -57,6 +57,9 @@ TBA
 
 == Changelog ==
 
+= 1.1.7 =
+* multisite undefined function wpmu_delete_user() issue - FIXED
+
 = 1.1.6 =
 * CloudFlare can cause our server validation methods to fail resulting in licenses not being added - FIXED
 * Stored keys will be cleared when deactivating 'One click addon installs' - CHANGED
