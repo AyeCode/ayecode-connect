@@ -1383,6 +1383,7 @@ if ( ! class_exists( 'AyeCode_Connect' ) ) :
 				array(
 					'methods'  => WP_REST_Server::EDITABLE,
 					'callback' => array( $this, 'verify_registration' ),
+					'permission_callback' => array( $this, 'verify_registration_permission_callback' )
 				)
 			);
 
@@ -1393,9 +1394,28 @@ if ( ! class_exists( 'AyeCode_Connect' ) ) :
 				array(
 					'methods'  => WP_REST_Server::READABLE,
 					'callback' => array( $this, 'connection_page' ),
+					'permission_callback' => '__return_true'
 				)
 			);
 
+		}
+
+		/**
+		 * Permission callback for rest API registration route.
+		 *
+		 * @return bool
+		 */
+		public function verify_registration_permission_callback(){
+			$result = false;
+
+			$activation_secret = isset( $_REQUEST['activation_secret'] ) ? esc_attr($_REQUEST['activation_secret']) : '';
+			$current_activation_secret =  $this->get_activation_secret();
+
+			if ($current_activation_secret && $activation_secret && $current_activation_secret == $activation_secret ) {
+				$result = true;
+			}
+
+			return $result;
 		}
 
 		/**
