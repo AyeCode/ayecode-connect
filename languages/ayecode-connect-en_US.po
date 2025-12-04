@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: AyeCode Connect 1.4.13\n"
+"Project-Id-Version: AyeCode Connect 1.4.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-16 14:33+0530\n"
-"PO-Revision-Date: 2025-10-16 14:33+0530\n"
+"POT-Creation-Date: 2025-12-04 16:54+0530\n"
+"PO-Revision-Date: 2025-12-04 16:54+0530\n"
 "Last-Translator: \n"
 "Language-Team: AyeCode Ltd <contact@ayecode.io>\n"
 "Language: en_US\n"
@@ -945,62 +945,62 @@ msgstr ""
 msgid "Invalid Secret"
 msgstr ""
 
-#: includes/class-ayecode-connect.php:803
+#: includes/class-ayecode-connect.php:806
 #, php-format
 msgid "Domain `%1$s` just failed is_usable_domain check as it is empty."
 msgstr ""
 
-#: includes/class-ayecode-connect.php:834
+#: includes/class-ayecode-connect.php:837
 #, php-format
 msgid ""
 "Domain `%1$s` just failed is_usable_domain check as it is in the forbidden "
 "array."
 msgstr ""
 
-#: includes/class-ayecode-connect.php:849
+#: includes/class-ayecode-connect.php:852
 #, php-format
 msgid ""
 "Domain `%1$s` just failed is_usable_domain check as it uses an invalid top "
 "level domain."
 msgstr ""
 
-#: includes/class-ayecode-connect.php:1188
-#: includes/class-ayecode-connect.php:1203
-#: includes/class-ayecode-connect.php:1421
+#: includes/class-ayecode-connect.php:1191
+#: includes/class-ayecode-connect.php:1206
+#: includes/class-ayecode-connect.php:1424
 msgid "Missing Authorization Header."
 msgstr ""
 
-#: includes/class-ayecode-connect.php:1209
-#: includes/class-ayecode-connect.php:1427
-#: includes/class-ayecode-connect.php:1433
+#: includes/class-ayecode-connect.php:1212
+#: includes/class-ayecode-connect.php:1430
+#: includes/class-ayecode-connect.php:1436
 msgid "Invalid Authorization Header."
 msgstr ""
 
-#: includes/class-ayecode-connect.php:1216
+#: includes/class-ayecode-connect.php:1219
 msgid "Missing blog token."
 msgstr ""
 
-#: includes/class-ayecode-connect.php:1221
-#: includes/class-ayecode-connect.php:1441
+#: includes/class-ayecode-connect.php:1224
+#: includes/class-ayecode-connect.php:1444
 msgid "You are not authorized to do that."
 msgstr ""
 
-#: includes/class-ayecode-connect.php:1356
+#: includes/class-ayecode-connect.php:1359
 msgid "Missing token"
 msgstr ""
 
-#: includes/class-ayecode-connect.php:1491
+#: includes/class-ayecode-connect.php:1494
 msgid "Specify an action"
 msgstr ""
 
-#: includes/class-ayecode-connect.php:1753
+#: includes/class-ayecode-connect.php:1756
 #, php-format
 msgid ""
 "<b>AyeCode Connect:</b> Your website URL has changed, please %sre-connect%s "
 "this site."
 msgstr ""
 
-#: includes/class-ayecode-connect.php:1812
+#: includes/class-ayecode-connect.php:1815
 msgid "Missing site id."
 msgstr ""
 
@@ -1805,7 +1805,7 @@ msgid "Please give us any feedback that could help us improve"
 msgstr ""
 
 #: vendor/ayecode/wp-deactivation-survey/wp-deactivation-survey.php:64
-#: vendor/ayecode/wp-super-duper/wp-super-duper.php:3852
+#: vendor/ayecode/wp-super-duper/wp-super-duper.php:3854
 msgid "Cancel"
 msgstr ""
 
@@ -2020,6 +2020,16 @@ msgstr ""
 
 #: vendor/ayecode/wp-super-duper/hello-world.php:132
 msgid "This is an input added via filter."
+msgstr ""
+
+#: vendor/ayecode/wp-super-duper/includes/class-super-duper-bricks-element.php:192
+msgctxt "Widget option: Yes"
+msgid "Yes"
+msgstr ""
+
+#: vendor/ayecode/wp-super-duper/includes/class-super-duper-bricks-element.php:193
+msgctxt "Widget option: No"
+msgid "No"
 msgstr ""
 
 #: vendor/ayecode/wp-super-duper/map.php:25
@@ -3026,103 +3036,103 @@ msgstr ""
 msgid "Custom Attributes"
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/sd-functions.php:2987
+#: vendor/ayecode/wp-super-duper/sd-functions.php:2991
 msgid "Block Visibility"
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/sd-functions.php:2988
+#: vendor/ayecode/wp-super-duper/sd-functions.php:2992
 msgid "Set Block Visibility"
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/sd-functions.php:2991
+#: vendor/ayecode/wp-super-duper/sd-functions.php:2995
 msgid "Visibility Conditions"
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/sd-functions.php:3023
+#: vendor/ayecode/wp-super-duper/sd-functions.php:3027
 msgid "Guest (logged out)"
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/sd-functions.php:3037
+#: vendor/ayecode/wp-super-duper/sd-functions.php:3041
 msgid "Logged In"
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/sd-functions.php:3038
+#: vendor/ayecode/wp-super-duper/sd-functions.php:3042
 msgid "Logged Out"
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/sd-functions.php:3039
+#: vendor/ayecode/wp-super-duper/sd-functions.php:3043
 msgid "Post Author"
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/sd-functions.php:3040
+#: vendor/ayecode/wp-super-duper/sd-functions.php:3044
 msgid "Specific User Roles"
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/sd-functions.php:3044
+#: vendor/ayecode/wp-super-duper/sd-functions.php:3048
 msgid "GD Field"
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/sd-functions.php:3136
+#: vendor/ayecode/wp-super-duper/sd-functions.php:3140
 msgid "is empty"
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/sd-functions.php:3137
+#: vendor/ayecode/wp-super-duper/sd-functions.php:3141
 msgid "is not empty"
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/sd-functions.php:3138
+#: vendor/ayecode/wp-super-duper/sd-functions.php:3142
 msgid "is equal"
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/sd-functions.php:3139
+#: vendor/ayecode/wp-super-duper/sd-functions.php:3143
 msgid "is not equal"
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/sd-functions.php:3140
+#: vendor/ayecode/wp-super-duper/sd-functions.php:3144
 msgid "is greater than"
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/sd-functions.php:3141
+#: vendor/ayecode/wp-super-duper/sd-functions.php:3145
 msgid "is less than"
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/sd-functions.php:3142
+#: vendor/ayecode/wp-super-duper/sd-functions.php:3146
 msgid "is contains"
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/sd-functions.php:3143
+#: vendor/ayecode/wp-super-duper/sd-functions.php:3147
 msgid "is not contains"
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/sd-functions.php:3158
-#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5239
-#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5331
+#: vendor/ayecode/wp-super-duper/sd-functions.php:3162
+#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5260
+#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5352
 msgid "Show Block"
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/sd-functions.php:3159
+#: vendor/ayecode/wp-super-duper/sd-functions.php:3163
 msgid "Hide Block"
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/sd-functions.php:3160
+#: vendor/ayecode/wp-super-duper/sd-functions.php:3164
 msgid "Show Custom Message"
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/sd-functions.php:3161
+#: vendor/ayecode/wp-super-duper/sd-functions.php:3165
 msgid "Show Page Content"
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/sd-functions.php:3162
+#: vendor/ayecode/wp-super-duper/sd-functions.php:3166
 msgid "Show Template Part"
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/sd-functions.php:3182
+#: vendor/ayecode/wp-super-duper/sd-functions.php:3186
 msgid "Select Page..."
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/sd-functions.php:3261
-#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5275
-#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5367
+#: vendor/ayecode/wp-super-duper/sd-functions.php:3265
+#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5296
+#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5388
 msgid "Select Template Part..."
 msgstr ""
 
@@ -3156,103 +3166,103 @@ msgstr ""
 msgid "Placeholder for:"
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/wp-super-duper.php:3852
+#: vendor/ayecode/wp-super-duper/wp-super-duper.php:3854
 msgid "Are you sure?"
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/wp-super-duper.php:3852
+#: vendor/ayecode/wp-super-duper/wp-super-duper.php:3854
 msgid "Delete"
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/wp-super-duper.php:4003
+#: vendor/ayecode/wp-super-duper/wp-super-duper.php:4005
 msgid "Reset"
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/wp-super-duper.php:4003
+#: vendor/ayecode/wp-super-duper/wp-super-duper.php:4005
 msgid "Close"
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/wp-super-duper.php:4003
+#: vendor/ayecode/wp-super-duper/wp-super-duper.php:4005
 msgid "Save Rules"
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5113
+#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5130
 msgid "Remove Rule"
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5118
+#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5135
 msgid "Rule"
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5119
+#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5136
 msgid "Select Rule..."
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5126
+#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5143
 msgid "Rule:"
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5142
-#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5143
+#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5163
+#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5164
 msgid "FIELD"
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5164
-#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5165
+#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5185
+#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5186
 msgid "CONDITION"
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5187
-#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5189
+#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5208
+#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5210
 msgid "VALUE TO MATCH"
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5203
+#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5224
 msgid "Select User Roles:"
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5227
+#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5248
 msgid "AND"
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5232
+#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5253
 msgid "Add Rule"
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5238
+#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5259
 msgid "What should happen if rules met."
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5258
-#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5350
+#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5279
+#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5371
 msgid "Page Content"
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5259
-#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5351
+#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5280
+#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5372
 msgid "Select Page ID..."
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5274
-#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5366
+#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5295
+#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5387
 msgid "Template Part"
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5293
-#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5385
+#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5314
+#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5406
 msgid "Custom Message Type"
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5294
-#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5386
+#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5315
+#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5407
 msgid "Default (none)"
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5317
-#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5409
+#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5338
+#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5430
 msgid "CUSTOM MESSAGE TO SHOW"
 msgstr ""
 
-#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5330
+#: vendor/ayecode/wp-super-duper/wp-super-duper.php:5351
 msgid "What should happen if rules NOT met."
 msgstr ""

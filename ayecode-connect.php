@@ -3,11 +3,11 @@
  * Plugin Name: AyeCode Connect
  * Plugin URI: https://ayecode.io/
  * Description: A service plugin letting users connect AyeCode Services to their site.
- * Version: 1.4.13
+ * Version: 1.4.14
  * Author: AyeCode
  * Author URI: https://ayecode.io
  * Requires at least: 5.0
- * Tested up to: 6.8
+ * Tested up to: 6.9
  *
  * Text Domain: ayecode-connect
  * Domain Path: /languages/
@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( !defined( 'AYECODE_CONNECT_VERSION' ) ) {
-	define( 'AYECODE_CONNECT_VERSION', '1.4.13' );
+	define( 'AYECODE_CONNECT_VERSION', '1.4.14' );
 }
 
 if ( !defined( 'AYECODE_CONNECT_SSL_VERIFY' ) ) {

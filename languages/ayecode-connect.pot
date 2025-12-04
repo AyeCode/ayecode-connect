@@ -1,9 +1,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: AyeCode Connect 1.4.13\n"
+"Project-Id-Version: AyeCode Connect 1.4.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-16 14:38+0530\n"
+"POT-Creation-Date: 2025-12-04 16:54+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: AyeCode Ltd <contact@ayecode.io>\n"
@@ -855,62 +855,62 @@ msgstr ""
 msgid "Invalid Secret"
 msgstr ""
 
-#: includes/class-ayecode-connect.php:803
+#: includes/class-ayecode-connect.php:806
 #, php-format
 msgid "Domain `%1$s` just failed is_usable_domain check as it is empty."
 msgstr ""
 
-#: includes/class-ayecode-connect.php:834
+#: includes/class-ayecode-connect.php:837
 #, php-format
 msgid ""
 "Domain `%1$s` just failed is_usable_domain check as it is in the forbidden "
 "array."
 msgstr ""
 
-#: includes/class-ayecode-connect.php:849
+#: includes/class-ayecode-connect.php:852
 #, php-format
 msgid ""
 "Domain `%1$s` just failed is_usable_domain check as it uses an invalid top "
 "level domain."
 msgstr ""
 
-#: includes/class-ayecode-connect.php:1188
-#: includes/class-ayecode-connect.php:1203
-#: includes/class-ayecode-connect.php:1421
+#: includes/class-ayecode-connect.php:1191
+#: includes/class-ayecode-connect.php:1206
+#: includes/class-ayecode-connect.php:1424
 msgid "Missing Authorization Header."
 msgstr ""
 
-#: includes/class-ayecode-connect.php:1209
-#: includes/class-ayecode-connect.php:1427
-#: includes/class-ayecode-connect.php:1433
+#: includes/class-ayecode-connect.php:1212
+#: includes/class-ayecode-connect.php:1430
+#: includes/class-ayecode-connect.php:1436
 msgid "Invalid Authorization Header."
 msgstr ""
 
-#: includes/class-ayecode-connect.php:1216
+#: includes/class-ayecode-connect.php:1219
 msgid "Missing blog token."
 msgstr ""
 
-#: includes/class-ayecode-connect.php:1221
-#: includes/class-ayecode-connect.php:1441
+#: includes/class-ayecode-connect.php:1224
+#: includes/class-ayecode-connect.php:1444
 msgid "You are not authorized to do that."
 msgstr ""
 
-#: includes/class-ayecode-connect.php:1356
+#: includes/class-ayecode-connect.php:1359
 msgid "Missing token"
 msgstr ""
 
-#: includes/class-ayecode-connect.php:1491
+#: includes/class-ayecode-connect.php:1494
 msgid "Specify an action"
 msgstr ""
 
-#: includes/class-ayecode-connect.php:1753
+#: includes/class-ayecode-connect.php:1756
 #, php-format
 msgid ""
 "<b>AyeCode Connect:</b> Your website URL has changed, please %sre-connect%s "
 "this site."
 msgstr ""
 
-#: includes/class-ayecode-connect.php:1812
+#: includes/class-ayecode-connect.php:1815
 msgid "Missing site id."
 msgstr ""
 
