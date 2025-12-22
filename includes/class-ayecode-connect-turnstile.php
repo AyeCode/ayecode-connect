@@ -47,6 +47,8 @@ class AyeCode_Connect_Turnstile {
 				'uwp_active_campaign_unsubscribe'      => 1,
 				'uwp_brevo_subscribe'      => 1,
 				'uwp_brevo_unsubscribe'      => 1,
+                'uwp_getresponse_subscribe'       => 1,
+                'uwp_getresponse_unsubscribe'      => 1,
 			)
 		);
 
@@ -174,6 +176,11 @@ class AyeCode_Connect_Turnstile {
 					add_action( 'uwp_brevo_subscribe_fields', array( $this, 'add_turnstile_uwp_brevo_forms' ), 10, 1 );
 					add_action( 'uwp_brevo_form_validate', array( $this, 'verify_uwp_brevo_subscribe' ), 20,1 );
 				}
+
+                if ( ! empty( $this->options['protections']['uwp_getresponse_subscribe'] ) || ! empty( $this->options['protections']['uwp_getresponse_unsubscribe'] ) ) {
+                    add_action( 'uwp_getresponse_subscribe_fields', array( $this, 'add_turnstile_uwp_getresponse_forms' ), 10, 1 );
+                    add_action( 'uwp_getresponse_form_validate', array( $this, 'verify_uwp_getresponse_subscribe' ), 20,1 );
+                }
 
 				// UWP Frontend Post Addon
 				if ( ! empty( $this->options['protections']['uwp_frontend'] ) ) {
@@ -478,6 +485,36 @@ class AyeCode_Connect_Turnstile {
 			$this->add_turnstile_widget();
 		}
 	}
+
+    public function add_turnstile_uwp_getresponse_forms( $args ) {
+        $ayecode_turnstile_options = get_option( 'ayecode_turnstile_options');
+        if ( $args['type'] == 'subscribe' && ! empty($ayecode_turnstile_options['protections']['uwp_getresponse_subscribe'])) {
+            $this->add_turnstile_widget();
+        }
+
+        if ($args['type'] == 'unsubscribe' && ! empty($ayecode_turnstile_options['protections']['uwp_getresponse_unsubscribe']) ) {
+            $this->add_turnstile_widget();
+        }
+    }
+
+    public function verify_uwp_getresponse_subscribe($data) {
+        $ayecode_turnstile_options = get_option( 'ayecode_turnstile_options');
+        if(is_array($data)) {
+            if($data['action'] == 'uwp_getresponse_subscribe' && $ayecode_turnstile_options['protections']['uwp_getresponse_subscribe'] == true) {
+                $verify = $this->verify_turnstile( 'uwp_getresponse_subscribe' );
+                if ( is_wp_error( $verify ) ) {
+                    return $verify;
+                }
+            }
+            if($data['action'] == 'uwp_getresponse_unsubscribe' && $ayecode_turnstile_options['protections']['uwp_getresponse_unsubscribe'] == true) {
+                $verify = $this->verify_turnstile( 'uwp_getresponse_unsubscribe' );
+                if ( is_wp_error( $verify ) ) {
+                    return $verify;
+                }
+            }
+        }
+        return $data;
+    }
 
 	/**
 	 * Add some CSS for the login form sizing.

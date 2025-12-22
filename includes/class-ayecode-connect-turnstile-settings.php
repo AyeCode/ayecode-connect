@@ -408,6 +408,16 @@ class AyeCode_Connect_Turnstile_Settings {
                                             ];
                                         }
 
+                                        if ( defined( 'UWP_GETRESPONSE_VERSION' ) ) {
+                                            $turnstile_protections['uwp_getresponse_subscribe'] = [
+                                                'title'   => __( 'UsersWP  - Getresponse Subscribe Form', 'ayecode-connect' ),
+                                                'default' => true
+                                            ];
+                                            $turnstile_protections['uwp_getresponse_unsubscribe'] = [
+                                                'title'   => __( 'UsersWP  - Getresponse Unsubscribe Form', 'ayecode-connect' ),
+                                                'default' => true
+                                            ];
+                                        }
 
 										// UWP Frontend Post Addon
 										if ( defined( 'UWP_FRONTEND_POST_VERSION' ) ) {
