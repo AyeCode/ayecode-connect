@@ -4,10 +4,10 @@ Donate link: https://www.ko-fi.com/stiofan
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Tags:  ayecode, service, geodirectory, userswp, getpaid
-Requires at least: 5.0
+Requires at least: 6.0
 Requires PHP: 5.6
-Tested up to: 6.9
-Stable tag: 1.4.15
+Tested up to: 7.0
+Stable tag: 1.4.16
 
 
 Use this service plugin to easily activate any of our products, open a support ticket and view documentation all from your wp-admin!
@@ -81,12 +81,8 @@ If your host runs "mod security" on your hosting and has some specific additiona
 
 == Changelog ==
 
-= 1.4.16 - 2026-TBD =
-* Turnstile captcha support for UWP Getresponse addon forms - ADDED
-* Turnstile captcha support for UWP Aweber addon forms - ADDED
-* Turnstile captcha support for UWP Constant Contact addon forms - ADDED
-* Turnstile captcha support for UWP Newsletter addon forms - ADDED
-* Turnstile captcha support for UWP Active Campaign addon forms - ADDED
+= 1.4.16 - 2026-04-02 =
+* WordPress 7.0 compatibility - COMPATIBILITY
 
 = 1.4.15 - 2026-01-22 =
 * Merge AUI 0.2.43, SD 1.2.31 & AyeCode Connect Helper 1.0.5 - CHANGED
