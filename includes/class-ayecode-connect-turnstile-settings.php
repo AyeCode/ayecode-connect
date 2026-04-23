@@ -355,59 +355,113 @@ class AyeCode_Connect_Turnstile_Settings {
 
                                         if ( defined( 'UWP_MAILERLITE_VERSION' ) ) {
                                             $turnstile_protections['uwp_mailerlite_subscribe'] = [
-                                                'title'   => __( 'UsersWP  - MailerLite Subscribe Form', 'ayecode-connect' ),
+                                                'title'   => __( 'UsersWP - MailerLite Subscribe Form', 'ayecode-connect' ),
                                                 'default' => true
                                             ];
                                             $turnstile_protections['uwp_mailerlite_unsubscribe'] = [
-                                                'title'   => __( 'UsersWP  - MailerLite Unsubscribe Form', 'ayecode-connect' ),
+                                                'title'   => __( 'UsersWP - MailerLite Unsubscribe Form', 'ayecode-connect' ),
                                                 'default' => true
                                             ];
                                         }
 
 										if ( defined( 'UWP_MC_VERSION' ) ) {
                                             $turnstile_protections['uwp_mc_subscribe'] = [
-                                                'title'   => __( 'UsersWP  - MailChimp Subscribe Form', 'ayecode-connect' ),
+                                                'title'   => __( 'UsersWP - MailChimp Subscribe Form', 'ayecode-connect' ),
                                                 'default' => true
                                             ];
                                             $turnstile_protections['uwp_mc_unsubscribe'] = [
-                                                'title'   => __( 'UsersWP  - MailChimp Unsubscribe Form', 'ayecode-connect' ),
+                                                'title'   => __( 'UsersWP - MailChimp Unsubscribe Form', 'ayecode-connect' ),
                                                 'default' => true
                                             ];
                                         }
 
 										if ( defined( 'UWP_MAILPOET_VERSION' ) ) {
                                             $turnstile_protections['uwp_mailpoet_subscribe'] = [
-                                                'title'   => __( 'UsersWP  - Mailpoet Subscribe Form', 'ayecode-connect' ),
+                                                'title'   => __( 'UsersWP - Mailpoet Subscribe Form', 'ayecode-connect' ),
                                                 'default' => true
                                             ];
                                             $turnstile_protections['uwp_mailpoet_unsubscribe'] = [
-                                                'title'   => __( 'UsersWP  - Mailpoet Unsubscribe Form', 'ayecode-connect' ),
+                                                'title'   => __( 'UsersWP - Mailpoet Unsubscribe Form', 'ayecode-connect' ),
                                                 'default' => true
                                             ];
                                         }
 
 										if ( defined( 'UWP_ACTIVECAMPAIGN_VERSION' ) ) {
                                             $turnstile_protections['uwp_active_campaign_subscribe'] = [
-                                                'title'   => __( 'UsersWP  - ActiveCampaign Subscribe Form', 'ayecode-connect' ),
+                                                'title'   => __( 'UsersWP - ActiveCampaign Subscribe Form', 'ayecode-connect' ),
                                                 'default' => true
                                             ];
                                             $turnstile_protections['uwp_active_campaign_unsubscribe'] = [
-                                                'title'   => __( 'UsersWP  - ActiveCampaign Unsubscribe Form', 'ayecode-connect' ),
+                                                'title'   => __( 'UsersWP - ActiveCampaign Unsubscribe Form', 'ayecode-connect' ),
                                                 'default' => true
                                             ];
                                         }
 
 										if ( defined( 'UWP_BREVO_VERSION' ) ) {
                                             $turnstile_protections['uwp_brevo_subscribe'] = [
-                                                'title'   => __( 'UsersWP  - Brevo Subscribe Form', 'ayecode-connect' ),
+                                                'title'   => __( 'UsersWP - Brevo Subscribe Form', 'ayecode-connect' ),
                                                 'default' => true
                                             ];
                                             $turnstile_protections['uwp_brevo_unsubscribe'] = [
-                                                'title'   => __( 'UsersWP  - Brevo Unsubscribe Form', 'ayecode-connect' ),
+                                                'title'   => __( 'UsersWP - Brevo Unsubscribe Form', 'ayecode-connect' ),
                                                 'default' => true
                                             ];
                                         }
 
+                                        if ( defined( 'UWP_GETRESPONSE_VERSION' ) ) {
+                                            $turnstile_protections['uwp_getresponse_subscribe'] = [
+                                                'title'   => __( 'UsersWP - GetResponse Subscribe Form', 'ayecode-connect' ),
+                                                'default' => true
+                                            ];
+                                            $turnstile_protections['uwp_getresponse_unsubscribe'] = [
+                                                'title'   => __( 'UsersWP - GetResponse Unsubscribe Form', 'ayecode-connect' ),
+                                                'default' => true
+                                            ];
+                                        }
+
+                                        if ( defined( 'UWP_AWEBER_VERSION' ) ) {
+                                            $turnstile_protections['uwp_aweber_subscribe'] = [
+                                                'title'   => __( 'UsersWP - Aweber Subscribe Form', 'ayecode-connect' ),
+                                                'default' => true
+                                            ];
+                                            $turnstile_protections['uwp_aweber_unsubscribe'] = [
+                                                'title'   => __( 'UsersWP - Aweber Unsubscribe Form', 'ayecode-connect' ),
+                                                'default' => true
+                                            ];
+                                        }
+
+                                        if ( defined( 'UWP_CC_VERSION' ) ) {
+                                            $turnstile_protections['uwp_cc_subscribe'] = [
+                                                'title'   => __( 'UsersWP - Constant Contact Subscribe Form', 'ayecode-connect' ),
+                                                'default' => true
+                                            ];
+                                            $turnstile_protections['uwp_cc_unsubscribe'] = [
+                                                'title'   => __( 'UsersWP - Constant Contact Unsubscribe Form', 'ayecode-connect' ),
+                                                'default' => true
+                                            ];
+                                        }
+
+                                        if ( defined( 'UWP_NEWSLETTER_VERSION' ) ) {
+                                            $turnstile_protections['uwp_newsletter_subscribe'] = [
+                                                'title'   => __( 'UsersWP - Newsletter Subscribe Form', 'ayecode-connect' ),
+                                                'default' => true
+                                            ];
+                                            $turnstile_protections['uwp_newsletter_unsubscribe'] = [
+                                                'title'   => __( 'UsersWP - Newsletter Unsubscribe Form', 'ayecode-connect' ),
+                                                'default' => true
+                                            ];
+                                        }
+
+										if ( defined( 'UWP_CM_VERSION' ) ) {
+                                            $turnstile_protections['uwp_cm_subscribe'] = [
+                                                'title'   => __( 'UsersWP - Campaign Monitor Subscribe Form', 'ayecode-connect' ),
+                                                'default' => true
+                                            ];
+                                            $turnstile_protections['uwp_cm_unsubscribe'] = [
+                                                'title'   => __( 'UsersWP - Campaign Monitor Unsubscribe Form', 'ayecode-connect' ),
+                                                'default' => true
+                                            ];
+                                        }
 
 										// UWP Frontend Post Addon
 										if ( defined( 'UWP_FRONTEND_POST_VERSION' ) ) {
@@ -433,9 +487,6 @@ class AyeCode_Connect_Turnstile_Settings {
 												'default' => true
 											];
 										}
-
-
-
 
 										$turnstile_protections = apply_filters( 'ayecode_turnstile_protections', $turnstile_protections );
 
