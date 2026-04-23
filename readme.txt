@@ -81,6 +81,14 @@ If your host runs "mod security" on your hosting and has some specific additiona
 
 == Changelog ==
 
+= 1.4.17 - 2026-TBD =
+* Turnstile captcha support for UWP Getresponse addon forms - ADDED
+* Turnstile captcha support for UWP Aweber addon forms - ADDED
+* Turnstile captcha support for UWP Constant Contact addon forms - ADDED
+* Turnstile captcha support for UWP Newsletter addon forms - ADDED
+* Turnstile captcha support for UWP Active Campaign addon forms - ADDED
+* Turnstile captcha support for UWP Campaign Monitor addon forms - ADDED
+
 = 1.4.16 - 2026-04-02 =
 * WordPress 7.0 compatibility - COMPATIBILITY
 
