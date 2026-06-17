@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: AyeCode Connect 1.4.16\n"
+"Project-Id-Version: AyeCode Connect 1.4.17\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-02 19:21+0530\n"
-"PO-Revision-Date: 2026-04-02 19:21+0530\n"
+"POT-Creation-Date: 2026-06-17 21:10+0530\n"
+"PO-Revision-Date: 2026-06-17 21:10+0530\n"
 "Last-Translator: \n"
 "Language-Team: AyeCode Ltd <contact@ayecode.io>\n"
 "Language: en_US\n"
@@ -829,105 +829,145 @@ msgid "UsersWP Account"
 msgstr ""
 
 #: includes/class-ayecode-connect-turnstile-settings.php:358
-msgid "UsersWP  - MailerLite Subscribe Form"
+msgid "UsersWP - MailerLite Subscribe Form"
 msgstr ""
 
 #: includes/class-ayecode-connect-turnstile-settings.php:362
-msgid "UsersWP  - MailerLite Unsubscribe Form"
+msgid "UsersWP - MailerLite Unsubscribe Form"
 msgstr ""
 
 #: includes/class-ayecode-connect-turnstile-settings.php:369
-msgid "UsersWP  - MailChimp Subscribe Form"
+msgid "UsersWP - MailChimp Subscribe Form"
 msgstr ""
 
 #: includes/class-ayecode-connect-turnstile-settings.php:373
-msgid "UsersWP  - MailChimp Unsubscribe Form"
+msgid "UsersWP - MailChimp Unsubscribe Form"
 msgstr ""
 
 #: includes/class-ayecode-connect-turnstile-settings.php:380
-msgid "UsersWP  - Mailpoet Subscribe Form"
+msgid "UsersWP - Mailpoet Subscribe Form"
 msgstr ""
 
 #: includes/class-ayecode-connect-turnstile-settings.php:384
-msgid "UsersWP  - Mailpoet Unsubscribe Form"
+msgid "UsersWP - Mailpoet Unsubscribe Form"
 msgstr ""
 
 #: includes/class-ayecode-connect-turnstile-settings.php:391
-msgid "UsersWP  - ActiveCampaign Subscribe Form"
+msgid "UsersWP - ActiveCampaign Subscribe Form"
 msgstr ""
 
 #: includes/class-ayecode-connect-turnstile-settings.php:395
-msgid "UsersWP  - ActiveCampaign Unsubscribe Form"
+msgid "UsersWP - ActiveCampaign Unsubscribe Form"
 msgstr ""
 
 #: includes/class-ayecode-connect-turnstile-settings.php:402
-msgid "UsersWP  - Brevo Subscribe Form"
+msgid "UsersWP - Brevo Subscribe Form"
 msgstr ""
 
 #: includes/class-ayecode-connect-turnstile-settings.php:406
-msgid "UsersWP  - Brevo Unsubscribe Form"
+msgid "UsersWP - Brevo Unsubscribe Form"
 msgstr ""
 
-#: includes/class-ayecode-connect-turnstile-settings.php:415
-msgid "UsersWP Frontend Post"
+#: includes/class-ayecode-connect-turnstile-settings.php:413
+msgid "UsersWP - GetResponse Subscribe Form"
+msgstr ""
+
+#: includes/class-ayecode-connect-turnstile-settings.php:417
+msgid "UsersWP - GetResponse Unsubscribe Form"
 msgstr ""
 
 #: includes/class-ayecode-connect-turnstile-settings.php:424
+msgid "UsersWP - Aweber Subscribe Form"
+msgstr ""
+
+#: includes/class-ayecode-connect-turnstile-settings.php:428
+msgid "UsersWP - Aweber Unsubscribe Form"
+msgstr ""
+
+#: includes/class-ayecode-connect-turnstile-settings.php:435
+msgid "UsersWP - Constant Contact Subscribe Form"
+msgstr ""
+
+#: includes/class-ayecode-connect-turnstile-settings.php:439
+msgid "UsersWP - Constant Contact Unsubscribe Form"
+msgstr ""
+
+#: includes/class-ayecode-connect-turnstile-settings.php:446
+msgid "UsersWP - Newsletter Subscribe Form"
+msgstr ""
+
+#: includes/class-ayecode-connect-turnstile-settings.php:450
+msgid "UsersWP - Newsletter Unsubscribe Form"
+msgstr ""
+
+#: includes/class-ayecode-connect-turnstile-settings.php:457
+msgid "UsersWP - Campaign Monitor Subscribe Form"
+msgstr ""
+
+#: includes/class-ayecode-connect-turnstile-settings.php:461
+msgid "UsersWP - Campaign Monitor Unsubscribe Form"
+msgstr ""
+
+#: includes/class-ayecode-connect-turnstile-settings.php:469
+msgid "UsersWP Frontend Post"
+msgstr ""
+
+#: includes/class-ayecode-connect-turnstile-settings.php:478
 msgid "BlockStrap Contact Form"
 msgstr ""
 
-#: includes/class-ayecode-connect-turnstile-settings.php:432
+#: includes/class-ayecode-connect-turnstile-settings.php:486
 msgid "GetPaid Checkout Form"
 msgstr ""
 
-#: includes/class-ayecode-connect-turnstile-settings.php:470
+#: includes/class-ayecode-connect-turnstile-settings.php:521
 msgid "Disable for"
 msgstr ""
 
-#: includes/class-ayecode-connect-turnstile-settings.php:492
+#: includes/class-ayecode-connect-turnstile-settings.php:543
 msgid "Disable for user roles"
 msgstr ""
 
-#: includes/class-ayecode-connect-turnstile-settings.php:500
+#: includes/class-ayecode-connect-turnstile-settings.php:551
 msgid "Save Changes"
 msgstr ""
 
-#: includes/class-ayecode-connect-turnstile.php:707
+#: includes/class-ayecode-connect-turnstile.php:892
 msgid "Security verification missing."
 msgstr ""
 
-#: includes/class-ayecode-connect-turnstile.php:716
+#: includes/class-ayecode-connect-turnstile.php:901
 msgid ""
 "Please try again. Turnstile response field is empty. Check the keys are "
 "setup properly."
 msgstr ""
 
-#: includes/class-ayecode-connect-turnstile.php:716
-#: includes/class-ayecode-connect-turnstile.php:749
+#: includes/class-ayecode-connect-turnstile.php:901
+#: includes/class-ayecode-connect-turnstile.php:934
 msgid "Security verification failed."
 msgstr ""
 
-#: includes/class-ayecode-connect-turnstile.php:724
+#: includes/class-ayecode-connect-turnstile.php:909
 msgid "Turnstile configuration error."
 msgstr ""
 
-#: includes/class-ayecode-connect-turnstile.php:739
+#: includes/class-ayecode-connect-turnstile.php:924
 msgid "Security verification service unavailable."
 msgstr ""
 
-#: includes/class-ayecode-connect-turnstile.php:814
+#: includes/class-ayecode-connect-turnstile.php:999
 msgid "Password Reset Failed"
 msgstr ""
 
-#: includes/class-ayecode-connect-turnstile.php:831
+#: includes/class-ayecode-connect-turnstile.php:1016
 msgid "Comment Submission Failed"
 msgstr ""
 
-#: includes/class-ayecode-connect-turnstile.php:1080
+#: includes/class-ayecode-connect-turnstile.php:1265
 msgid "Security verification failed, please try again."
 msgstr ""
 
-#: includes/class-ayecode-connect-turnstile.php:1105
+#: includes/class-ayecode-connect-turnstile.php:1290
 msgid "Turnstile API keys are verified successfully."
 msgstr ""
 
