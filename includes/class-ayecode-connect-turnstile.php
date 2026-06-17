@@ -1257,6 +1257,16 @@ class AyeCode_Connect_Turnstile {
 	 * @return bool True if validated, else False.
 	 */
 	public function verify_turnstile_keys() {
+		if ( ! current_user_can( 'manage_options' ) ) {
+			$error = aui()->alert( array(
+					'type' => 'danger',
+					'content' => __( 'You are not allowed to perform this action.', 'ayecode-connect' )
+				)
+			);
+
+			wp_send_json_error( $error );
+		}
+
 		$nonce = ! empty( $_REQUEST['security'] ) ? sanitize_text_field( $_REQUEST['security'] ) : '';
 
 		if ( ! ( $nonce && wp_verify_nonce( $nonce, 'ayecode-turnstile-verify-keys' ) ) ) {
