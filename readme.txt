@@ -7,7 +7,7 @@ Tags:  ayecode, service, geodirectory, userswp, getpaid
 Requires at least: 6.0
 Requires PHP: 5.6
 Tested up to: 7.0
-Stable tag: 1.4.18
+Stable tag: 1.4.19
 
 
 Use this service plugin to easily activate any of our products, open a support ticket and view documentation all from your wp-admin!
@@ -80,6 +80,9 @@ If your host runs "mod security" on your hosting and has some specific additiona
 3. Connected.
 
 == Changelog ==
+
+= 1.4.19 - 2026-07-01 =
+* AUI 0.2.51 & SD 1.2.33 - CHANGED
 
 = 1.4.18 - 2026-06-17 =
 * Enhance capability validation within the Turnstile captcha to prevent unauthorized access - SECURITY
