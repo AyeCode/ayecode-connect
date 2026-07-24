@@ -81,6 +81,9 @@ If your host runs "mod security" on your hosting and has some specific additiona
 
 == Changelog ==
 
+= 1.4.20 - 2026-07-TBD =
+* Fix PHP 8.5 compatibility notices - COMPATIBILITY
+
 = 1.4.19 - 2026-07-01 =
 * AUI 0.2.51 & SD 1.2.33 - CHANGED
 

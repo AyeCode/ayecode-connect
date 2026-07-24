@@ -1477,10 +1477,10 @@ if ( ! class_exists( 'AyeCode_Connect_Remote_Actions' ) ) {
 		 */
 		private function get_server_ip() {
 			if ( ! empty( $_SERVER['HTTP_CLIENT_IP'] ) ) {
-				//check ip from share internet
+				// Check ip from share internet
 				$ip = $_SERVER['HTTP_CLIENT_IP'];
 			} elseif ( ! empty( $_SERVER['HTTP_X_FORWARDED_FOR'] ) ) {
-				//to check ip is pass from proxy
+				// To check ip is pass from proxy
 				$ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
 			} else {
 				$ip = $_SERVER['REMOTE_ADDR'];
@@ -1488,7 +1488,8 @@ if ( ! class_exists( 'AyeCode_Connect_Remote_Actions' ) ) {
 
 			// Cloudflare can provide a comma separated ip list
 			if ( strpos( $ip, ',' ) !== false ) {
-				$ip = reset( explode( ",", $ip ) );
+				$parts = explode( ',', $ip );
+				$ip    = trim( $parts[0] );
 			}
 
 			return $ip;
