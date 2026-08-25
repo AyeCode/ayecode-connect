@@ -5,8 +5,8 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Tags:  ayecode, service, geodirectory, userswp, getpaid
 Requires at least: 6.0
-Requires PHP: 5.6
-Tested up to: 7.0
+Requires PHP: 7.2
+Tested up to: 7.1
 Stable tag: 1.4.21
 
 
@@ -25,17 +25,21 @@ You will be able to remotely manage your activated sites and licences all from y
 
 You can also use our one click demo importer.
 
-NEW: Cloudflare Turnstile Captcha feature.  You can now activate Cloudflare turnstile on your site which will add a captcha to all AyeCode Ltd products ( GeoDirectory, UsersWP, GetPaid, BlockStrap ).
+NEW: Cloudflare Turnstile Captcha feature. You can now activate Cloudflare turnstile on your site which will add a captcha to all AyeCode Ltd products ( GeoDirectory, UsersWP, GetPaid, BlockStrap ).
 Our implementation of Turnstile is loaded only when the field is show on the screen which helps with speed and SEO of your site.
 NOTE: Your site does NOT have to be using Cloudflare to be able to use Cloudflare Turnstile.
+
+== Security ==
+
+To report a security vulnerability, please review our [vulnerability disclosure policy](https://ayecode.io/vulnerability-disclosure-policy/).
 
 == Installation ==
 
 = Minimum Requirements =
 
-* WordPress 5.0 or greater
-* PHP version 5.6 or greater
-* MySQL version 5.0 or greater
+* WordPress 6.0 or greater
+* PHP version 7.2 or greater
+* MySQL version 8.0 or greater
 
 = Automatic installation =
 
@@ -45,7 +49,7 @@ In the search field type "AyeCode Connect" and click Search Plugins. Once you've
 
 = Manual installation =
 
-The manual installation method involves downloading our plugin and uploading it to your webserver via your favourite FTP application. The WordPress codex will tell you more [here](http://codex.wordpress.org/Managing_Plugins#Manual_Plugin_Installation).
+The manual installation method involves downloading our AyeCode Connect plugin and uploading it to your webserver via your favourite FTP application. The WordPress codex will tell you more [here](https://codex.wordpress.org/Managing_Plugins#Manual_Plugin_Installation).
 
 = Updating =
 
