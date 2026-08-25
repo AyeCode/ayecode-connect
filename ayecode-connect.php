@@ -7,7 +7,7 @@
  * Author: AyeCode
  * Author URI: https://ayecode.io
  * Requires at least: 6.0
- * Tested up to: 7.0
+ * Tested up to: 7.1
  *
  * Text Domain: ayecode-connect
  * Domain Path: /languages/
