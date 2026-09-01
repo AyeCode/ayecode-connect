@@ -85,6 +85,9 @@ If your host runs "mod security" on your hosting and has some specific additiona
 
 == Changelog ==
 
+= 1.4.22 - TBD =
+* Login blocked by Turnstile captcha when Wordfence 2FA is active - FIXED
+
 = 1.4.21 - 2026-08-18 =
 * Merge AUI 0.2.52 & SD 1.2.35 - CHANGED
 

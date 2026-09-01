@@ -5,6 +5,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 class AyeCode_Connect_Turnstile {
+	/**
+	 * Seconds a passed token stays reusable. Matches Cloudflare's token lifetime.
+	 */
+	const TOKEN_REUSE_TTL = 300;
+
 	private static $instance = null;
 	private $options;
 	private $widget_count = 0;
@@ -910,6 +915,13 @@ class AyeCode_Connect_Turnstile {
 			);
 		}
 
+		// Tokens are single use, reuse the result if already verified.
+		$reuse_key = $this->get_token_reuse_key( $token );
+
+		if ( get_transient( $reuse_key ) ) {
+			return true;
+		}
+
 		$response = wp_remote_post( 'https://challenges.cloudflare.com/turnstile/v0/siteverify', array(
 			'body' => array(
 				'secret'   => $secret_key,
@@ -935,7 +947,26 @@ class AyeCode_Connect_Turnstile {
 			);
 		}
 
+		set_transient( $reuse_key, 1, self::TOKEN_REUSE_TTL );
+
 		return true;
+	}
+
+	/**
+	 * Get the transient key used to remember a passed Turnstile token.
+	 *
+	 * Hashed with the client IP so it cannot be reused from another address.
+	 *
+	 * @since 1.4.22
+	 *
+	 * @param string $token The cf-turnstile-response token.
+	 *
+	 * @return string
+	 */
+	private function get_token_reuse_key( $token ) {
+		$ip = isset( $_SERVER['REMOTE_ADDR'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REMOTE_ADDR'] ) ) : '';
+
+		return 'aye_ts_ok_' . md5( $token . '|' . $ip );
 	}
 
 	/**
