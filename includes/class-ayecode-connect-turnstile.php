@@ -99,8 +99,9 @@ class AyeCode_Connect_Turnstile {
 			} else if ( ! $this->check_role_disabled() ) {
 				// WP Login protection
 				if ( ! empty( $this->options['protections']['login'] ) ) {
-					add_action( 'login_form', array( $this, 'add_turnstile_widget' ) );
+					add_action( 'login_form', array( $this, 'add_turnstile_widget_login' ) );
 					add_filter( 'authenticate', array( $this, 'verify_login' ), 99, 3 );
+					add_action( 'login_footer', array( $this, 'reset_widget_after_wordfence' ) );
 				}
 
 
@@ -733,16 +734,25 @@ class AyeCode_Connect_Turnstile {
 	}
 
 	/**
-	 * Outputs the HTML markup for a Turnstile widget including configuration attributes and initialization script.
+	 * Outputs the Turnstile widget for the WP login form.
 	 *
-	 * This method generates a Turnstile widget placeholder with attributes such as site key, theme, and size,
-	 * which are configured by the current instance options. If triggered via an AJAX request, the method
-	 * includes a script to initialize the widget placeholders dynamically.
-	 *
-	 * @return void This method does not return a value; it directly outputs the widget's HTML and JavaScript.
+	 * @return void
 	 */
-	public function add_turnstile_widget() {
+	public function add_turnstile_widget_login() {
+		$this->add_turnstile_widget( 'login' );
+	}
+
+	/**
+	 * Output the Turnstile widget placeholder.
+	 *
+	 * @param string $context Which form the widget is for.
+	 *
+	 * @return void
+	 */
+	public function add_turnstile_widget( $context = '' ) {
 		global $aye_turnstile_setting;
+
+		$context = is_string( $context ) ? $context : '';
 
 		if ( $this->check_verified() ) {
 			// Force true for backward compatibility.
@@ -757,6 +767,7 @@ class AyeCode_Connect_Turnstile {
 		?>
         <div class="ayecode-turnstile-placeholder mb-2"
              data-sitekey="<?php echo esc_attr( $this->get_site_key() ); ?>"
+             data-action="<?php echo esc_attr( $context ); ?>"
              data-theme="<?php echo esc_attr( isset( $this->options['theme'] ) ? sanitize_text_field( $this->options['theme'] ) : 'light' ); ?>"
              data-size="<?php echo esc_attr( isset( $this->options['size'] ) ? sanitize_text_field( $this->options['size'] ) : 'normal' ); ?>"
              id="<?php echo esc_attr( $id ); ?>">
@@ -806,6 +817,7 @@ class AyeCode_Connect_Turnstile {
                             sitekey: placeholder.getAttribute('data-sitekey'),
                             theme: placeholder.getAttribute('data-theme'),
                             size: placeholder.getAttribute('data-size'),
+                            action: placeholder.getAttribute('data-action') || undefined,
                         });
                     });
                     window.ayecodeTurnstileQueue = [];
@@ -825,6 +837,7 @@ class AyeCode_Connect_Turnstile {
                                         sitekey: placeholder.getAttribute('data-sitekey'),
                                         theme: placeholder.getAttribute('data-theme'),
                                         size: placeholder.getAttribute('data-size'),
+                                        action: placeholder.getAttribute('data-action') || undefined,
                                     });
                                 } else {
                                     // Not loaded yet, queue it
@@ -875,10 +888,11 @@ class AyeCode_Connect_Turnstile {
 	 *
 	 * @param $context
 	 * @param $is_admin True when call from setting page verification.
+	 * @param $attempt  What is being attempted.
 	 *
 	 * @return true|WP_Error
 	 */
-	private function verify_turnstile( $context = '', $is_admin = false ) {
+	private function verify_turnstile( $context = '', $is_admin = false, $attempt = '' ) {
 		if ( ! $is_admin && $this->check_verified() ) {
 			// Force true for backward compatibility.
 			if ( ! $this->is_verified() ) {
@@ -910,12 +924,18 @@ class AyeCode_Connect_Turnstile {
 			);
 		}
 
+		$request_body = array(
+			'secret'   => $secret_key,
+			'response' => $token,
+			'remoteip' => sanitize_text_field( wp_unslash( $_SERVER['REMOTE_ADDR'] ) )
+		);
+
+		if ( $attempt !== '' ) {
+			$request_body['idempotency_key'] = $this->get_idempotency_key( $token, $context, $attempt );
+		}
+
 		$response = wp_remote_post( 'https://challenges.cloudflare.com/turnstile/v0/siteverify', array(
-			'body' => array(
-				'secret'   => $secret_key,
-				'response' => $token,
-				'remoteip' => sanitize_text_field( wp_unslash( $_SERVER['REMOTE_ADDR'] ) )
-			)
+			'body' => $request_body
 		) );
 
 		if ( is_wp_error( $response ) ) {
@@ -927,15 +947,77 @@ class AyeCode_Connect_Turnstile {
 
 		$body = json_decode( wp_remote_retrieve_body( $response ), true );
 
-
-		if ( empty( $body['success'] ) ) {
+		if ( ! is_array( $body ) || empty( $body['success'] ) ) {
 			return new WP_Error(
 				'turnstile_failed',
 				__( 'Security verification failed.', 'ayecode-connect' )
 			);
 		}
 
+		if ( $context !== '' && isset( $body['action'] ) && $body['action'] !== '' && $body['action'] !== $context ) {
+			return new WP_Error(
+				'turnstile_wrong_form',
+				__( 'Security verification failed.', 'ayecode-connect' )
+			);
+		}
+
 		return true;
+	}
+
+	/**
+	 * Get the Cloudflare idempotency key for a verification attempt.
+	 *
+	 * @since 1.4.22
+	 *
+	 * @param string $token   The cf-turnstile-response token.
+	 * @param string $context Which form asked.
+	 * @param string $attempt What is being attempted.
+	 *
+	 * @return string
+	 */
+	private function get_idempotency_key( $token, $context, $attempt ) {
+		$hash = hash_hmac( 'sha256', $token . '|' . $context . '|' . $attempt, wp_salt( 'auth' ) );
+
+		return sprintf(
+			'%s-%s-4%s-%s%s-%s',
+			substr( $hash, 0, 8 ),
+			substr( $hash, 8, 4 ),
+			substr( $hash, 13, 3 ),
+			dechex( hexdec( substr( $hash, 16, 1 ) ) % 4 + 8 ),
+			substr( $hash, 17, 3 ),
+			substr( $hash, 20, 12 )
+		);
+	}
+
+	/**
+	 * Reset the widget when Wordfence rejects a login without reloading the page.
+	 *
+	 * @since 1.4.22
+	 *
+	 * @return void
+	 */
+	public function reset_widget_after_wordfence() {
+		?>
+        <script>
+            (function () {
+                if ( ! window.jQuery ) {
+                    return;
+                }
+
+                jQuery( document ).ajaxComplete( function ( event, xhr, settings ) {
+                    if ( ! settings || String( settings.data || '' ).indexOf( 'wordfence_ls_authenticate' ) === -1 ) {
+                        return;
+                    }
+
+                    var said = xhr.responseJSON;
+
+                    if ( said && ( said.error || said.message ) ) {
+                        document.dispatchEvent( new Event( 'ayecode_reset_captcha' ) );
+                    }
+                } );
+            })();
+        </script>
+		<?php
 	}
 
 	/**
@@ -949,7 +1031,7 @@ class AyeCode_Connect_Turnstile {
 	 */
 	public function verify_login( $user, $username, $password ) {
 		if ( ! empty( $username ) && ! empty( $password ) ) {
-			$verify = $this->verify_turnstile( 'login' );
+			$verify = $this->verify_turnstile( 'login', false, $username . '|' . $password );
 			if ( is_wp_error( $verify ) ) {
 				return $verify;
 			}
