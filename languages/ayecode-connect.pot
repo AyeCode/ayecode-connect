@@ -1,9 +1,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: AyeCode Connect 1.4.21\n"
+"Project-Id-Version: AyeCode Connect 1.4.22\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-18 17:00+0530\n"
+"POT-Creation-Date: 2026-09-08 17:13+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: AyeCode Ltd <contact@ayecode.io>\n"
@@ -934,46 +934,47 @@ msgstr ""
 msgid "Save Changes"
 msgstr ""
 
-#: includes/class-ayecode-connect-turnstile.php:892
+#: includes/class-ayecode-connect-turnstile.php:906
 msgid "Security verification missing."
 msgstr ""
 
-#: includes/class-ayecode-connect-turnstile.php:901
+#: includes/class-ayecode-connect-turnstile.php:915
 msgid ""
 "Please try again. Turnstile response field is empty. Check the keys are "
 "setup properly."
 msgstr ""
 
-#: includes/class-ayecode-connect-turnstile.php:901
-#: includes/class-ayecode-connect-turnstile.php:934
+#: includes/class-ayecode-connect-turnstile.php:915
+#: includes/class-ayecode-connect-turnstile.php:953
+#: includes/class-ayecode-connect-turnstile.php:960
 msgid "Security verification failed."
 msgstr ""
 
-#: includes/class-ayecode-connect-turnstile.php:909
+#: includes/class-ayecode-connect-turnstile.php:923
 msgid "Turnstile configuration error."
 msgstr ""
 
-#: includes/class-ayecode-connect-turnstile.php:924
+#: includes/class-ayecode-connect-turnstile.php:944
 msgid "Security verification service unavailable."
 msgstr ""
 
-#: includes/class-ayecode-connect-turnstile.php:999
+#: includes/class-ayecode-connect-turnstile.php:1081
 msgid "Password Reset Failed"
 msgstr ""
 
-#: includes/class-ayecode-connect-turnstile.php:1016
+#: includes/class-ayecode-connect-turnstile.php:1098
 msgid "Comment Submission Failed"
 msgstr ""
 
-#: includes/class-ayecode-connect-turnstile.php:1263
+#: includes/class-ayecode-connect-turnstile.php:1345
 msgid "You are not allowed to perform this action."
 msgstr ""
 
-#: includes/class-ayecode-connect-turnstile.php:1275
+#: includes/class-ayecode-connect-turnstile.php:1357
 msgid "Security verification failed, please try again."
 msgstr ""
 
-#: includes/class-ayecode-connect-turnstile.php:1300
+#: includes/class-ayecode-connect-turnstile.php:1382
 msgid "Turnstile API keys are verified successfully."
 msgstr ""
 
@@ -1338,7 +1339,7 @@ msgid "v4 (legacy)"
 msgstr ""
 
 #: vendor/ayecode/wp-ayecode-ui/includes/ayecode-ui-settings.php:961
-#: vendor/ayecode/wp-font-awesome-settings/wp-font-awesome-settings.php:532
+#: vendor/ayecode/wp-font-awesome-settings/wp-font-awesome-settings.php:541
 msgid "Frontend"
 msgstr ""
 
@@ -1397,7 +1398,7 @@ msgid ""
 msgstr ""
 
 #: vendor/ayecode/wp-ayecode-ui/includes/ayecode-ui-settings.php:996
-#: vendor/ayecode/wp-font-awesome-settings/wp-font-awesome-settings.php:533
+#: vendor/ayecode/wp-font-awesome-settings/wp-font-awesome-settings.php:542
 msgid "Backend"
 msgstr ""
 
@@ -1943,101 +1944,101 @@ msgstr ""
 msgid "%s (default)"
 msgstr ""
 
-#: vendor/ayecode/wp-font-awesome-settings/wp-font-awesome-settings.php:528
+#: vendor/ayecode/wp-font-awesome-settings/wp-font-awesome-settings.php:537
 msgid "Enqueue"
 msgstr ""
 
-#: vendor/ayecode/wp-font-awesome-settings/wp-font-awesome-settings.php:531
+#: vendor/ayecode/wp-font-awesome-settings/wp-font-awesome-settings.php:540
 msgid "Frontend + Backend (default)"
 msgstr ""
 
-#: vendor/ayecode/wp-font-awesome-settings/wp-font-awesome-settings.php:540
+#: vendor/ayecode/wp-font-awesome-settings/wp-font-awesome-settings.php:549
 msgid "Enable pro"
 msgstr ""
 
-#: vendor/ayecode/wp-font-awesome-settings/wp-font-awesome-settings.php:546
+#: vendor/ayecode/wp-font-awesome-settings/wp-font-awesome-settings.php:555
 #, php-format
 msgid "Requires a subscription. %sLearn more%s  %sManage my allowed domains%s"
 msgstr ""
 
-#: vendor/ayecode/wp-font-awesome-settings/wp-font-awesome-settings.php:557
+#: vendor/ayecode/wp-font-awesome-settings/wp-font-awesome-settings.php:566
 msgid "Load Fonts Locally"
 msgstr ""
 
-#: vendor/ayecode/wp-font-awesome-settings/wp-font-awesome-settings.php:562
+#: vendor/ayecode/wp-font-awesome-settings/wp-font-awesome-settings.php:571
 msgid ""
 "(For free version only) Load FontAwesome fonts from locally. This downloads "
 "FontAwesome fonts from fontawesome.com & stores at the local site."
 msgstr ""
 
-#: vendor/ayecode/wp-font-awesome-settings/wp-font-awesome-settings.php:568
+#: vendor/ayecode/wp-font-awesome-settings/wp-font-awesome-settings.php:577
 msgid "Enable v4 shims compatibility"
 msgstr ""
 
-#: vendor/ayecode/wp-font-awesome-settings/wp-font-awesome-settings.php:574
+#: vendor/ayecode/wp-font-awesome-settings/wp-font-awesome-settings.php:583
 msgid ""
 "This enables v4 classes to work with v5, sort of like a band-aid until "
 "everyone has updated everything to v5."
 msgstr ""
 
-#: vendor/ayecode/wp-font-awesome-settings/wp-font-awesome-settings.php:580
+#: vendor/ayecode/wp-font-awesome-settings/wp-font-awesome-settings.php:589
 msgid "Enable JS pseudo elements (not recommended)"
 msgstr ""
 
-#: vendor/ayecode/wp-font-awesome-settings/wp-font-awesome-settings.php:587
+#: vendor/ayecode/wp-font-awesome-settings/wp-font-awesome-settings.php:596
 msgid ""
 "Used only with the JS version, this will make pseudo-elements work but can "
 "be CPU intensive on some sites."
 msgstr ""
 
-#: vendor/ayecode/wp-font-awesome-settings/wp-font-awesome-settings.php:593
+#: vendor/ayecode/wp-font-awesome-settings/wp-font-awesome-settings.php:602
 msgid "Dequeue"
 msgstr ""
 
-#: vendor/ayecode/wp-font-awesome-settings/wp-font-awesome-settings.php:599
+#: vendor/ayecode/wp-font-awesome-settings/wp-font-awesome-settings.php:608
 msgid ""
 "This will try to dequeue any other Font Awesome versions loaded by other "
 "sources if they are added with `font-awesome` or `fontawesome` in the name."
 msgstr ""
 
-#: vendor/ayecode/wp-font-awesome-settings/wp-font-awesome-settings.php:608
+#: vendor/ayecode/wp-font-awesome-settings/wp-font-awesome-settings.php:617
 msgid "Get 24,000+ more icons with Font Awesome Pro"
 msgstr ""
 
-#: vendor/ayecode/wp-font-awesome-settings/wp-font-awesome-settings.php:613
+#: vendor/ayecode/wp-font-awesome-settings/wp-font-awesome-settings.php:622
 #, php-format
 msgid "Version: %s (affiliate links provided)"
 msgstr ""
 
-#: vendor/ayecode/wp-font-awesome-settings/wp-font-awesome-settings.php:723
+#: vendor/ayecode/wp-font-awesome-settings/wp-font-awesome-settings.php:732
 msgid ""
 "The Official Font Awesome Plugin is active, please adjust your settings "
 "there."
 msgstr ""
 
-#: vendor/ayecode/wp-font-awesome-settings/wp-font-awesome-settings.php:733
+#: vendor/ayecode/wp-font-awesome-settings/wp-font-awesome-settings.php:742
 #, php-format
 msgid ""
 "Font Awesome Pro v6 requires the use of a kit, please setup your kit in "
 "%ssettings.%s"
 msgstr ""
 
-#: vendor/ayecode/wp-font-awesome-settings/wp-font-awesome-settings.php:762
-#: vendor/ayecode/wp-font-awesome-settings/wp-font-awesome-settings.php:794
+#: vendor/ayecode/wp-font-awesome-settings/wp-font-awesome-settings.php:771
+#: vendor/ayecode/wp-font-awesome-settings/wp-font-awesome-settings.php:803
 msgid "ERROR:"
 msgstr ""
 
-#: vendor/ayecode/wp-font-awesome-settings/wp-font-awesome-settings.php:909
+#: vendor/ayecode/wp-font-awesome-settings/wp-font-awesome-settings.php:918
 msgid "Something went wrong in downloading the font awesome to store locally."
 msgstr ""
 
-#: vendor/ayecode/wp-font-awesome-settings/wp-font-awesome-settings.php:953
+#: vendor/ayecode/wp-font-awesome-settings/wp-font-awesome-settings.php:962
 msgid ""
 "Failed to initialise WP_Filesystem while trying to download the Font "
 "Awesome package."
 msgstr ""
 
-#: vendor/ayecode/wp-font-awesome-settings/wp-font-awesome-settings.php:989
+#: vendor/ayecode/wp-font-awesome-settings/wp-font-awesome-settings.php:998
 msgid "Fail to move font awesome package!"
 msgstr ""
 
