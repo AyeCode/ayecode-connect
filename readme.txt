@@ -85,7 +85,8 @@ If your host runs "mod security" on your hosting and has some specific additiona
 
 == Changelog ==
 
-= 1.4.23 - 2026-TBD =
+= 1.4.23 - 2026-09-TBD =
+* Update AUI 0.2.56 and SD 1.2.37 - CHANGED
 * Turnstile stopped working after saving the settings page when keys are set in wp-config.php - FIXED
 * Turnstile settings page showed keys set in wp-config.php as "Not Verified" and asked to verify them - FIXED
 * Turnstile "Verify Keys" button failed when the settings page is loaded from a custom admin menu location - FIXED
