@@ -1459,79 +1459,51 @@ if ( ! class_exists( 'AyeCode_Connect_Remote_Actions' ) ) {
 		 *
 		 * @return bool
 		 */
+		/**
+		 * Request validation. Since 2.0 the REST permission callback (signed envelope, or legacy JWT from an
+		 * allowed IP) is the gate; the old spoofable client-IP check is gone.
+		 */
 		private function validate_request() {
-			$result = false;
-
-			if ( $this->get_server_ip() === "173.208.153.114" ) {
-				$result = true;
-			}
-
-			$result = true; // @TODO validate for remote request instead from server.
-
-			return $result;
+			return true;
 		}
 
 		/**
-		 * Get the request has come from our server.
-		 *
-		 * @return string
+		 * Hosts we will download install packages from. HTTPS only.
+		 * The old IP-resolution check broke whenever a host moved behind Cloudflare or R2.
 		 */
-		private function get_server_ip() {
-			if ( ! empty( $_SERVER['HTTP_CLIENT_IP'] ) ) {
-				// Check ip from share internet
-				$ip = $_SERVER['HTTP_CLIENT_IP'];
-			} elseif ( ! empty( $_SERVER['HTTP_X_FORWARDED_FOR'] ) ) {
-				// To check ip is pass from proxy
-				$ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-			} else {
-				$ip = $_SERVER['REMOTE_ADDR'];
-			}
-
-			// Cloudflare can provide a comma separated ip list
-			if ( strpos( $ip, ',' ) !== false ) {
-				$parts = explode( ',', $ip );
-				$ip    = trim( $parts[0] );
-			}
-
-			return $ip;
+		public static function allowed_download_hosts() {
+			return apply_filters( 'ayecode_connect_allowed_download_hosts', array(
+				'api.ayecode.io',
+				'downloads.wordpress.org',
+				'wordpress.org',
+				// legacy hosts while 1.x downloads still come from them (removed in 2.1)
+				'ayecode.io',
+				'wpgeodirectory.com',
+				'userswp.io',
+				'wpinvoicing.com',
+				'wpgetpaid.com',
+				'wpeasyupdates.com',
+			) );
 		}
 
-		/**
-		 * Validate a download url is from our own server: 173.208.153.114
-		 *
-		 * @param $url
-		 *
-		 * @return bool
-		 */
-		private function validate_download_url( $url ) {
-			$result = false;
-
-			if ( $url ) {
-				$parse = parse_url( $url );
-
-				if ( ! empty( $parse['host'] ) ) {
-					$ip = gethostbyname( $parse['host'] );
-
-					if ( $ip === "173.208.153.114" ) { // AyeCode.io Server
-						$result = true;
-					} else if ( $ip === "198.143.164.252" ) { // wordpress.org server
-						$result = true;
-					} else if ( $ip === "127.0.0.1" ) {
-						//$result = true; // @todo localhost
-					}
+		public static function validate_download_url( $url ) {
+			$parse = wp_parse_url( (string) $url );
+			if ( empty( $parse['host'] ) || empty( $parse['scheme'] ) ) {
+				return false;
+			}
+			if ( 'https' !== strtolower( $parse['scheme'] ) ) {
+				return false;
+			}
+			$host = strtolower( $parse['host'] );
+			foreach ( self::allowed_download_hosts() as $allowed ) {
+				$allowed = strtolower( $allowed );
+				if ( $host === $allowed || '.' . $allowed === substr( $host, - strlen( '.' . $allowed ) ) ) {
+					return true;
 				}
 			}
-
-			return $result;
+			return false;
 		}
 
-		/**
-		 * Install plugin.
-		 *
-		 * @param $result
-		 *
-		 * @return mixed
-		 */
 		public function install_plugin( $result, $request = array() ) {
 			$this->debug_log( 'start', __METHOD__, __FILE__, __LINE__ );
 
@@ -1561,6 +1533,8 @@ if ( ! class_exists( 'AyeCode_Connect_Remote_Actions' ) ) {
 				'download_link'    => isset( $params['download_link'] ) ? esc_url_raw( $params['download_link'] ) : '',
 				'activate'         => isset( $params['activate'] ) && $params['activate'] ? true : false,
 				'network_activate' => isset( $params['network_activate'] ) && $params['network_activate'] ? true : false,
+				// 2.0: replace an installed copy older than this (the API sends it for WP Easy Updates 1.x -> 2.x).
+				'min_version'      => isset( $params['min_version'] ) ? preg_replace( '/[^0-9A-Za-z.\-]/', '', (string) $params['min_version'] ) : '',
 			);
 
 			if ( empty( $plugin['repo-slug'] ) ) {
@@ -1648,6 +1622,16 @@ if ( ! class_exists( 'AyeCode_Connect_Remote_Actions' ) ) {
 					$installed = true;
 				}
 
+				// An installed copy older than min_version is replaced, which needs a download link (never wordpress.org).
+				$upgrade = false;
+				if ( $installed && ! empty( $plugin_to_install['min_version'] ) && ! empty( $plugin_to_install['download_link'] ) ) {
+					$all_plugins = get_plugins();
+					if ( isset( $all_plugins[ $plugin ]['Version'] ) && version_compare( $all_plugins[ $plugin ]['Version'], $plugin_to_install['min_version'], '<' ) ) {
+						$installed = false;
+						$upgrade   = true;
+					}
+				}
+
 				$this->debug_log( $plugin, __METHOD__ . ':plugin', __FILE__, __LINE__ );
 				$this->debug_log( $installed, __METHOD__ . ':installed', __FILE__, __LINE__ );
 				$this->debug_log( $activate, __METHOD__ . ':activate', __FILE__, __LINE__ );
@@ -1669,7 +1653,7 @@ if ( ! class_exists( 'AyeCode_Connect_Remote_Actions' ) ) {
 							$plugin_information = (object) array(
 								'name'          => esc_attr( $plugin_to_install['name'] ),
 								'slug'          => esc_attr( $plugin_to_install['repo-slug'] ),
-								'download_link' => esc_url( $plugin_to_install['download_link'] ),
+								'download_link' => esc_url_raw( $plugin_to_install['download_link'] ), // raw: esc_url would turn & into &#038; and break signed links
 							);
 						} else {
 							$this->debug_log( $plugin_to_install['repo-slug'], __METHOD__ . ':plugin-slug', __FILE__, __LINE__ );
@@ -1737,12 +1721,12 @@ if ( ! class_exists( 'AyeCode_Connect_Remote_Actions' ) ) {
 						$result = $upgrader->install_package( array(
 							'source'                      => $working_dir,
 							'destination'                 => WP_PLUGIN_DIR,
-							'clear_destination'           => false,
+							'clear_destination'           => $upgrade,
 							'abort_if_destination_exists' => false,
 							'clear_working'               => true,
 							'hook_extra'                  => array(
 								'type'   => 'plugin',
-								'action' => 'install'
+								'action' => $upgrade ? 'update' : 'install'
 							)
 						) );
 
@@ -1856,6 +1840,12 @@ if ( ! class_exists( 'AyeCode_Connect_Remote_Actions' ) ) {
 			}
 
 			$this->debug_log( $download_link, __METHOD__ .  ':' . $slug . ':download_link', __FILE__, __LINE__ );
+
+			// same allow-list as plugin installs
+			if ( ! empty( $download_link ) && ! self::validate_download_url( $download_link ) ) {
+				$download_link = '';
+				$error         = __( "Download source not valid.", "ayecode-connect" );
+			}
 
 			if ( ! empty( $download_link ) ) {
 				WP_Filesystem();

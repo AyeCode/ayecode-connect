@@ -7,7 +7,7 @@ Tags:  ayecode, service, geodirectory, userswp, getpaid
 Requires at least: 6.0
 Requires PHP: 7.2
 Tested up to: 7.1
-Stable tag: 1.4.23
+Stable tag: 2.0.0
 
 
 Use this service plugin to easily activate any of our products, open a support ticket and view documentation all from your wp-admin!
@@ -85,7 +85,21 @@ If your host runs "mod security" on your hosting and has some specific additiona
 
 == Changelog ==
 
-= 1.4.24 - TBD =
+= 2.0.0 - 2026-10-13 =
+* New API: the plugin now talks to api.ayecode.io, with the old ayecode.io endpoints kept as a fallback during the move - CHANGED
+* Remote commands from AyeCode are verified by Ed25519 signature; the IP address check is no longer the security gate - SECURITY
+* Each command is bound to this site, expires, and cannot be replayed - SECURITY
+* Legacy commands from the old server are accepted only from the real connecting IP (REMOTE_ADDR), never from forwarded headers - SECURITY
+* After connecting, an older WP Easy Updates (1.x) is replaced with 2.0 through the API - CHANGED
+* Plugin and theme installs only download over HTTPS from api.ayecode.io, wordpress.org or AyeCode's own sites - SECURITY
+* The site can now collect its commands instead of waiting to be called (groundwork for connecting local sites) - ADDED
+* Connecting a site sets up update notifications and one click installs straight away, including sites behind a proxy or CDN - FIXED
+* Connection no longer depends on the server reaching this site; registration completes from the site side - CHANGED
+* A per-site token is used for update and licence calls once connected; sites already connected get one automatically on upgrade - ADDED
+* Public signing keys and the legacy IP list are refreshed daily from api.ayecode.io - ADDED
+* Settings page warns when the site is on a local domain - ADDED
+* The licence toggle stays off until the updates plugin is active, since licences are managed by it - CHANGED
+* WP-CLI: `wp ayecode-connect status`, `pull` and `sync-licences` for support - ADDED
 * UWP login always fails when Turnstile is enabled for WP login and disabled for UWP login - FIXED
 
 = 1.4.23 - 2026-09-30 =
@@ -362,3 +376,8 @@ If your host runs "mod security" on your hosting and has some specific additiona
 * Images for Support Popup ( team*.jpg ), Copyright AyeCode Ltd
   License: CC0 Public Domain
   Source: https://ayecode.io/
+
+== Upgrade Notice ==
+
+= 2.0.0 =
+Major update. AyeCode Connect now uses the new api.ayecode.io service and signed commands. Connected sites stay connected and switch over automatically. Please also update WP Easy Updates to 2.0.0.

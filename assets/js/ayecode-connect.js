@@ -26,6 +26,11 @@ function ayecode_connect_updates($input,$state){
                 if (!$state && jQuery('#ac-setting-licences').is(':checked')) {
                     jQuery('#ac-setting-licences').trigger('click');
                 }
+                // the updates plugin is now installed and active: reload so the licence toggle shows its real state
+                if ($state) {
+                    location.reload();
+                    return;
+                }
 
             }else{
                 // oh dear, toggle it back

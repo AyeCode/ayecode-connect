@@ -288,10 +288,7 @@ if ( ! class_exists( 'AyeCode_Connect_Settings' ) ) {
 						$success = false;
 					}
 				} else {// request
-					$result = $this->client->request_updates();
-					if ( is_wp_error( $result ) ) {
-						$success = false;
-					}
+					$success = $this->client->install_updates_plugin();
 				}
 
 			} else { // disable
@@ -605,17 +602,24 @@ if ( ! class_exists( 'AyeCode_Connect_Settings' ) ) {
 										</div>
 									</li>
 
+									<?php $wpeu_active = defined( 'WP_EASY_UPDATES_ACTIVE' ); ?>
 									<li class="list-group-item d-flex justify-content-between align-items-center">
-										<span
-											class="mr-auto me-auto"><?php _e( "One click addon installs, no more license keys", "ayecode-connect" ); ?></span>
+										<span class="mr-auto me-auto text-left text-start"><?php _e( "One click addon installs, no more license keys", "ayecode-connect" ); ?>
+											<?php if ( ! $wpeu_active ) { ?>
+												<small class="d-block text-muted text-left text-start"><?php _e( "Turn on update notifications first; licences are managed by the updates plugin.", "ayecode-connect" ); ?></small>
+											<?php } ?>
+										</span>
 										<div class="spinner-border spinner-border-sm mr-2 me-2 d-none text-muted"
 										     role="status">
 											<span class="sr-only"><?php _e( "Loading...", "ayecode-connect" ); ?></span>
 										</div>
 										<div class="<?php echo $aui_bs5 ? 'form-check form-switch' : 'custom-control custom-switch'; ?>">
 											<input type="checkbox" class="custom-control-input form-check-input" id="ac-setting-licences"
-												<?php if ( get_option( $this->client->prefix . "_licence_sync" ) ) {
+												<?php if ( $wpeu_active && get_option( $this->client->prefix . "_licence_sync" ) ) {
 													echo "checked";
+												} ?>
+												<?php if ( ! $wpeu_active ) {
+													echo 'disabled title="' . esc_attr__( "Enable plugin and theme update notifications first", "ayecode-connect" ) . '"';
 												} ?>
 												   onclick="if(jQuery(this).is(':checked')){ayecode_connect_licences(this,1);}else{ayecode_connect_licences(this,0);}"
 											>
@@ -744,8 +748,8 @@ if ( ! class_exists( 'AyeCode_Connect_Settings' ) ) {
 								$host      = isset( $_SERVER['HTTP_HOST'] ) ? $_SERVER['HTTP_HOST'] : '';
 								$localhost = $this->client->is_usable_domain( $host );
 								if ( is_wp_error( $localhost ) ) {
-									echo '<div class="alert alert-danger w-50 mx-auto" role="alert"><span class="badge ' . ( $aui_bs5 ? 'rounded-pill bg-danger text-light me-1' : 'badge-pill badge-light mr-1' ) . '">!</span>';
-									_e( "It looks like you might be running on localhost, AyeCode Connect will only work on a live website.", "ayecode-connect" );
+									echo '<div class="alert alert-warning w-50 mx-auto" role="alert"><span class="badge ' . ( $aui_bs5 ? 'rounded-pill bg-warning text-dark me-1' : 'badge-pill badge-light mr-1' ) . '">!</span>';
+									_e( "This looks like a local or private site. Connecting works, but remote actions arrive when you open the admin or every few minutes, not instantly.", "ayecode-connect" );
 									echo "</div>";
 								}
 							}
