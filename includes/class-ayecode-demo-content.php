@@ -720,7 +720,16 @@ if ( ! class_exists( 'AyeCode_Demo_Content' ) ) {
 			}
 
 			if ( empty( $response['download-link'] ) ) {
-				return new WP_Error( 'demo_download_generate_failed', __( 'Fail to generate download package.', 'ayecode-connect' ) );
+				// The API's own reason when it gave one (2.0 API: error/message, legacy route: code/message).
+				$message = ! empty( $response['message'] ) && is_scalar( $response['message'] ) ? sanitize_text_field( (string) $response['message'] ) : '';
+				$code    = ! empty( $response['error'] ) && is_scalar( $response['error'] ) ? (string) $response['error'] : ( ! empty( $response['code'] ) && is_scalar( $response['code'] ) ? (string) $response['code'] : '' );
+
+				return new WP_Error(
+					'demo_download_generate_failed',
+					/* translators: %s: the reason the AyeCode API gave. */
+					$message ? sprintf( __( 'Fail to generate download package: %s', 'ayecode-connect' ), $message ) : __( 'Fail to generate download package.', 'ayecode-connect' ),
+					$code ? array( 'api_code' => sanitize_key( $code ) ) : null
+				);
 			}
 
 			$wp_filesystem = $this->get_wp_filesystem();
