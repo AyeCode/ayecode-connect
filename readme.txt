@@ -7,7 +7,7 @@ Tags:  ayecode, service, geodirectory, userswp, getpaid
 Requires at least: 6.0
 Requires PHP: 7.2
 Tested up to: 7.1
-Stable tag: 2.0.1
+Stable tag: 2.0.2
 
 
 Use this service plugin to easily activate any of our products, open a support ticket and view documentation all from your wp-admin!
@@ -95,6 +95,10 @@ If your host runs "mod security" on your hosting and has some specific additiona
 3. Connected.
 
 == Changelog ==
+
+= 2.0.2 - 2026-11-13 =
+* Demo import failed with "Fail to generate download package" on sites connected with Connect 2.0, as the download request was signed with a token those sites do not have - FIXED
+* When a demo download cannot be prepared, the import shows the reason the AyeCode API gave - CHANGED
 
 = 2.0.1 - 2026-10-23 =
 * Plugins and themes are only installed when AyeCode sends the command to the site, never from commands the site fetches itself - CHANGED

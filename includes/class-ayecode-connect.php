@@ -363,13 +363,14 @@ if ( ! class_exists( 'AyeCode_Connect' ) ) :
 		}
 
 		/**
-		 * Routes the 2.0 API does not serve yet (demo content, plugin lists, the connection test): they stay on
-		 * ayecode.io whatever token the site holds.
+		 * Routes the 2.0 API does not serve (the public demo list, plugin lists, the connection test): they stay on
+		 * ayecode.io whatever token the site holds. Demo downloads use the 2.0 API since 2.0.2, as a site registered
+		 * through it holds no legacy token to sign the old route with.
 		 *
 		 * @since 2.0.0
 		 */
 		public static function is_legacy_only_route( $relative_url ) {
-			return (bool) preg_match( '#^(demos|request_demo_content/|request_plugins|test-connection)#', ltrim( $relative_url, '/' ) );
+			return (bool) preg_match( '#^(demos|request_plugins|test-connection)#', ltrim( $relative_url, '/' ) );
 		}
 
 		/**
