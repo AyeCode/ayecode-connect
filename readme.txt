@@ -96,7 +96,7 @@ If your host runs "mod security" on your hosting and has some specific additiona
 
 == Changelog ==
 
-= 2.0.2 - TBD =
+= 2.0.2 - 2026-11-13 =
 * Demo import failed with "Fail to generate download package" on sites connected with Connect 2.0, as the download request was signed with a token those sites do not have - FIXED
 * When a demo download cannot be prepared, the import shows the reason the AyeCode API gave - CHANGED
 
